@@ -25,7 +25,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "upax",
       "kebab-case"
     ],
     "eofline": true,

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-responsive {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.sortable-item {
+  border: solid 1px blue;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  height: 2rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.sortable-item-active {
+  color: #fff;
+  background: darkblue;
+}

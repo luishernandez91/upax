@@ -1,0 +1,6 @@
+<carousel>
+  <slide *ngFor="let image of images$ | async">
+    <div class="text-center py-5 bg-dark text-white bg-responsive img-container" [style.background]="'url('+ image.url +')'">
+    </div>
+  </slide>
+</carousel>
