@@ -30,7 +30,7 @@ export class EmployeesService {
    * Get a list of employees
    */
   getEmployeesList(): Observable<Array<EmployeeInterface>> {
-    return this.http.get<EmployeeApiResponseInterface>(`${this.urlEndpoint}/employees/${this.name}`)
+    return this.http.get<EmployeeApiResponseInterface>(`employees/`)
       .pipe(
         map(({data}) => {
           return data.employees;
@@ -43,17 +43,32 @@ export class EmployeesService {
    * @param info Employee information
    */
   addEmployee(info: EmployeeInterface): Observable<any> {
-    return this.http.post(`${this.urlEndpoint}/employees/${this.name}`, info);
+    return this.http.post(`employees/`, info);
   }
 
   /**
    * Get group list
    */
   getGroupList(): Observable<any> {
-    return this.http.get(`${this.urlEndpoint}/groups/${this.name}`)
+    return this.http.get(`groups/`)
       .pipe(
         map(({data}: any) => {
           return data.groups;
+        })
+      );
+  }
+
+  /**
+   * Get grouped employees list
+   * @param id Group id
+   */
+  getGroupedEmployees(id): Observable<any> {
+    return this.http.get('employees/', {
+      params: {id}
+    })
+      .pipe(
+        map(({data}: any) => {
+          return data.employees;
         })
       );
   }

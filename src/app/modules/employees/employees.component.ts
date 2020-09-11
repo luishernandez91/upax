@@ -4,11 +4,16 @@ import {EmployeeInterface} from '@interfaces/employee.interface';
 import {MatDialog} from '@angular/material/dialog';
 import {EmployeeFormComponent} from './components/employee-form/employee-form.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {InterceptorService} from '@services/interceptor/interceptor.service';
 
 @Component({
   selector: 'upax-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss']
+  styleUrls: ['./employees.component.scss'],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ]
 })
 export class EmployeesComponent implements OnInit {
   /**
